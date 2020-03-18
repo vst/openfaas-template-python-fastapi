@@ -1,0 +1,2 @@
+language: python-upstream-fastapi
+fprocess: gunicorn function.web:app -k uvicorn.workers.UvicornWorker --workers 1
