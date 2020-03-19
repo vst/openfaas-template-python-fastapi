@@ -1,2 +1,4 @@
 language: python-upstream-fastapi
-fprocess: gunicorn function.web:app -k uvicorn.workers.UvicornWorker --workers 1
+welcome_message: |
+  You have created a function which uses a FastAPI application as an
+  upstream.
