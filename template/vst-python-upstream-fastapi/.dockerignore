@@ -3,4 +3,5 @@
 
 ## Selectively include files and directories:
 !src/Pipfile
+!src/Pipfile.lock
 !src/function
