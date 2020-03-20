@@ -1,0 +1,5 @@
+.mypy_cache
+.pytest_cache
+.tox
+Pipfile.lock
+vs.code-workspace
