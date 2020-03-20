@@ -2,5 +2,5 @@
 **
 
 ## Selectively include files and directories:
-!Pipfile
-!function
+!src/Pipfile
+!src/function

@@ -21,13 +21,13 @@ USER appuser
 WORKDIR /home/appuser/
 
 ## Copy pipenv stuff:
-COPY Pipfile .
+COPY src/Pipfile .
 
 ## Install:
 RUN pipenv install
 
 ## Copy the program:
-COPY function function
+COPY src/function function
 
 ## Set up of-watchdog:
 ENV cgi_headers="true"
