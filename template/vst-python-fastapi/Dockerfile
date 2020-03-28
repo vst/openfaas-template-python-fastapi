@@ -19,8 +19,8 @@ RUN apk update                                                                  
 WORKDIR /app
 
 ## Copy Pipenv stuff:
-COPY src/Pipfile .
-COPY src/Pipfile.lock .
+COPY function/Pipfile .
+COPY function/Pipfile.lock .
 
 ## Install:
 RUN pipenv install --system --deploy --clear
@@ -29,14 +29,14 @@ RUN pipenv install --system --deploy --clear
 RUN apk del .build-deps
 
 ## Copy the program:
-COPY src/function function
+COPY function/src src
 
 ## Change user:
 USER app
 
 ## Set up of-watchdog:
 ENV cgi_headers="true"
-ENV fprocess="gunicorn function.web:app -k uvicorn.workers.UvicornWorker --workers 1"
+ENV fprocess="gunicorn src.web:app -k uvicorn.workers.UvicornWorker --workers 1"
 ENV mode="http"
 ENV upstream_url="http://127.0.0.1:8000"
 

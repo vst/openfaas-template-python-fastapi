@@ -1,5 +1,4 @@
-language: vst-python-upstream-fastapi
-handler_folder: ./src
+language: vst-python-fastapi
 welcome_message: |
   You have created a function which uses a FastAPI application as an
   upstream.

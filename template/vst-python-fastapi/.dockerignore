@@ -2,6 +2,6 @@
 **
 
 ## Selectively include files and directories:
-!src/Pipfile
-!src/Pipfile.lock
-!src/function
+!function/Pipfile
+!function/Pipfile.lock
+!function/src
