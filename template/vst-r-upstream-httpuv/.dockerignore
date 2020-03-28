@@ -1,6 +1,0 @@
-## Ignore everything:
-**
-
-## Selectively include files and directories:
-!.build
-!function

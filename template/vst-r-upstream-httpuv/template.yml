@@ -1,4 +1,0 @@
-language: vst-r-upstream-httpuv
-welcome_message: |
-  You have created a function which uses an httpuv application as an
-  upstream.
