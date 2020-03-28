@@ -29,7 +29,7 @@ cd sandbox
 Pull this template:
 
 ```
-faas-cli template pull https://github.com/vst/openfaas-template-python-fastapi
+faas-cli template pull "https://github.com/vst/openfaas-template-python-fastapi#0.0.3"
 ```
 
 Create your new OpenFAAS function, namely `myfunc`:
