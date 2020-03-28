@@ -1,0 +1,10 @@
+apt-transport-https
+ca-certificates
+curl
+gnupg
+r-cran-devtools
+r-cran-httpuv
+r-cran-httr
+r-cran-jsonlite
+r-cran-xts
+unzip
