@@ -67,3 +67,9 @@ use `curl` to check your function live:
 ```
 curl -D - http://localhost:8000
 ```
+
+## Customising the Docker build
+
+Check out `./function/.build` directory. You can define additional
+Debian packages to be installed under `packages.apt` and perform
+additional setup procedure under `setup.sh` and `setup.R` if required.

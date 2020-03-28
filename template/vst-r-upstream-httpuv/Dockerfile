@@ -8,26 +8,21 @@ FROM r-base:3.6.3
 COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
 RUN chmod +x /usr/bin/fwatchdog
 
-## Prepare apt-get and install base packages:
+## Copy core build artifacts:
+COPY .build /tmp/.build
+
+## Copy custom build artifacts (not `function` for smarter caching):
+COPY function/.build /home/docker/function/.build
+
+## Run build procedure:
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selections  && \
-    apt-get update -qy                                                              && \
-    apt-get install -qy --no-install-recommends                                        \
-        apt-transport-https                                                            \
-        ca-certificates                                                                \
-        curl                                                                           \
-        gnupg                                                                          \
-        r-cran-httpuv                                                                  \
-        r-cran-httr                                                                    \
-        r-cran-jsonlite                                                                \
-        r-cran-xts                                                                     \
-        unzip                                                                       && \
-    apt-get clean autoclean                                                         && \
-    apt-get autoremove -y                                                           && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN /bin/bash /tmp/.build/build.sh /tmp/.build
 
 ## Copy our code:
 COPY function /home/docker/function
+
+## Perform final cleanup:
+RUN rm -rf /home/docker/function/.build
 
 ## Change working directory:
 WORKDIR /home/docker/function
